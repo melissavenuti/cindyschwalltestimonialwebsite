@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials — Cindy Schwall Real Estate at Houlihan Lawrence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1a3a5c;
+      --navy-dark:  #122840;
+      --navy-light: #e8eef4;
+      --white:      #ffffff;
+      --off-white:  #f8f8f8;
+      --border:     #e2e2e2;
+      --text:       #333333;
+      --muted:      #777777;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-weight: 400;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .nav-logo-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .nav-logo-sub {
+      font-size: .6rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-links .nav-phone {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      transition: all .3s;
+    }
+
+    @media (max-width: 780px) {
+      .nav { padding: 0 20px; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 24px 28px;
+        gap: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.07);
+      }
+      .nav-links.open { display: flex; }
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1600&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(.45);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .hero-eyebrow {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 300;
+      letter-spacing: 18px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .hero-rule {
+      width: 50px;
+      height: 1px;
+      background: rgba(255,255,255,.5);
+      margin: 24px auto 0;
+    }
+
+    /* ── REVIEWS SECTION ──────────────────────────────── */
+    .reviews-section {
+      background: var(--white);
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-kicker {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .section-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--navy);
+      margin: 20px auto 0;
+      opacity: .35;
+    }
+
+    /* review list */
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .review-item {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .review-item:first-child { border-top: 1px solid var(--border); }
+
+    .review-name {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .review-stars {
+      color: #c9a84c;
+      font-size: .95rem;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .review-body-wrap { position: relative; }
+
+    .review-body {
+      font-size: .95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #444;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+
+    .review-body.collapsed { max-height: 84px; }
+    .review-body.expanded  { max-height: 2000px; }
+
+    .review-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--white));
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    .review-fade.hidden { opacity: 0; }
+
+    .read-more-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Raleway', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-top: 12px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity .2s;
+    }
+
+    .read-more-btn:hover { opacity: .7; }
+
+    .read-more-btn::after {
+      content: '↓';
+      font-size: .75rem;
+      transition: transform .3s;
+    }
+
+    .read-more-btn.open::after { transform: rotate(180deg); }
+
+    .empty-reviews {
+      text-align: center;
+      padding: 48px 0;
+      font-size: .88rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── CTA BANNER ───────────────────────────────────── */
+    .cta-banner {
+      background: var(--navy);
+      padding: 48px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-text {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.6);
+      padding: 14px 34px;
+      transition: background .2s, border-color .2s;
+      white-space: nowrap;
+      cursor: pointer;
+      background: transparent;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .cta-btn:hover {
+      background: rgba(255,255,255,.12);
+      border-color: var(--white);
+    }
+
+    @media (max-width: 640px) {
+      .cta-banner { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── FORM SECTION ─────────────────────────────────── */
+    .form-section {
+      background: var(--off-white);
+      padding: 80px 40px;
+    }
+
+    .form-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .form-section .section-header { margin-bottom: 48px; }
+
+    .form-group { margin-bottom: 26px; }
+
+    .form-label {
+      display: block;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      font-family: 'Raleway', sans-serif;
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      border-radius: 0;
+      appearance: none;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 2px rgba(26,58,92,.1);
+    }
+
+    .form-textarea { min-height: 130px; resize: vertical; }
+
+    /* star picker */
+    .star-picker {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 4px;
+      width: fit-content;
+    }
+
+    .star-picker input[type="radio"] { display: none; }
+
+    .star-picker label {
+      font-size: 1.8rem;
+      color: #d1d5db;
+      cursor: pointer;
+      transition: color .1s, transform .1s;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .star-picker label:hover,
+    .star-picker label:hover ~ label { color: #c9a84c; transform: scale(1.15); }
+
+    .star-picker input[type="radio"]:checked ~ label { color: #c9a84c; }
+
+    .form-submit {
+      font-family: 'Raleway', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 15px 42px;
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
+      display: inline-block;
+    }
+
+    .form-submit:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
+
+    .form-note {
+      font-size: .72rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 10px;
+      letter-spacing: .5px;
+    }
+
+    .form-success {
+      display: none;
+      background: #f0f7f0;
+      border: 1px solid #9dc89d;
+      padding: 14px 18px;
+      font-size: .85rem;
+      font-weight: 300;
+      color: #2a5c2a;
+      margin-top: 20px;
+      letter-spacing: .5px;
+      text-align: center;
+    }
+
+    .field-error { border-color: #c0392b !important; }
+    .star-error  { outline: 2px solid #c0392b; outline-offset: 4px; }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,.55);
+      padding: 52px 40px 36px;
+      text-align: center;
+    }
+
+    .footer-logo-name {
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .footer-logo-sub {
+      font-size: .58rem;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 28px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .footer-links a {
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(255,255,255,.5);
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-divider {
+      width: 36px;
+      height: 1px;
+      background: rgba(255,255,255,.15);
+      margin: 0 auto 28px;
+    }
+
+    .footer-copy {
+      font-size: .62rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,.25);
+    }
+
+    @media (max-width: 600px) {
+      .reviews-section { padding: 60px 20px; }
+      .form-section { padding: 60px 20px; }
+      footer { padding: 48px 20px 32px; }
+      .hero-title { letter-spacing: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────── -->
+<nav class="nav">
+  <a class="nav-logo" href="https://www.cindyschwall.com" target="_blank" rel="noopener">
+    <span class="nav-logo-name">Cindy Schwall</span>
+    <span class="nav-logo-sub">Houlihan Lawrence</span>
+  </a>
+
+  <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="https://cindyschwallrealestate.com/properties" target="_blank" rel="noopener">Portfolio</a></li>
+    <li><a href="https://cindyschwallrealestate.com/home-search/listings?listingStatus=%5B%22ACTIVE%22%2C%22COMING_SOON%22%5D&center=%7B%22lat%22%3A40.93941728905988%2C%22lng%22%3A-73.8030872737272%7D&boundary=%5B%5B%5B40.966454210056085%2C-73.88205150712564%5D%2C%5B40.966454210056085%2C-73.72412304032876%5D%2C%5B40.91238036806368%2C-73.72412304032876%5D%2C%5B40.91238036806368%2C-73.88205150712564%5D%2C%5B40.966454210056085%2C-73.88205150712564%5D%5D%5D" target="_blank" rel="noopener">Home Search</a></li>
+    <li><a href="https://cindyschwallrealestate.com/" target="_blank" rel="noopener">Visit My Website</a></li>
+    <li><a href="https://cindyschwallrealestate.com/" target="_blank" rel="noopener">Let's Connect</a></li>
+    <li><a href="tel:9146726424" class="nav-phone">(914) 672-6424</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cindy Schwall Real Estate</p>
+    <h1 class="hero-title">Testimonials</h1>
+    <div class="hero-rule"></div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ─────────────────────────────────────────── -->
+<div class="reviews-section">
+  <div class="section-header">
+    <p class="section-kicker">What Clients Are Saying</p>
+    <h2 class="section-title">Client Reviews</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="reviews-list" id="featured-list"></div>
+
+  <!-- community-submitted reviews appear here -->
+  <div id="submitted-list"></div>
+</div>
+
+<!-- ── CTA BANNER ──────────────────────────────────────── -->
+<div class="cta-banner">
+  <span class="cta-text">Love Working With Cindy?</span>
+  <button class="cta-btn" id="cta-scroll-btn">Leave a Review</button>
+</div>
+
+<!-- ── FORM ────────────────────────────────────────────── -->
+<section class="form-section" id="form-section">
+  <div class="form-inner">
+    <div class="section-header">
+      <p class="section-kicker">Share Your Experience</p>
+      <h2 class="section-title">Leave a Review</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <form id="review-form" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="r-name">Your Name</label>
+        <input class="form-input" type="text" id="r-name" placeholder="e.g. Jane & John Smith" maxlength="80" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Your Rating</label>
+        <div class="star-picker" id="star-picker">
+          <input type="radio" id="s5" name="rating" value="5" /><label for="s5" title="5 stars">★</label>
+          <input type="radio" id="s4" name="rating" value="4" /><label for="s4" title="4 stars">★</label>
+          <input type="radio" id="s3" name="rating" value="3" /><label for="s3" title="3 stars">★</label>
+          <input type="radio" id="s2" name="rating" value="2" /><label for="s2" title="2 stars">★</label>
+          <input type="radio" id="s1" name="rating" value="1" /><label for="s1" title="1 star">★</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="r-comment">Your Review</label>
+        <textarea class="form-textarea" id="r-comment" placeholder="Tell others about your experience working with Cindy…" maxlength="2000"></textarea>
+      </div>
+
+      <button class="form-submit" type="submit">Submit Review</button>
+      <p class="form-note">Your review will appear on this page once submitted.</p>
+      <div class="form-success" id="form-success">Thank you — your review has been submitted successfully.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer>
+  <p class="footer-logo-name">Cindy Schwall</p>
+  <p class="footer-logo-sub">Real Estate at Houlihan Lawrence</p>
+
+  <div class="footer-links">
+    <a href="https://www.cindyschwall.com" target="_blank" rel="noopener">cindyschwall.com</a>
+    <a href="tel:9146726424">(914) 672-6424</a>
+    <a href="https://www.cindyschwall.com/portfolio" target="_blank" rel="noopener">Portfolio</a>
+    <a href="https://www.cindyschwall.com/contact" target="_blank" rel="noopener">Let's Connect</a>
+  </div>
+
+  <div class="footer-divider"></div>
+  <p class="footer-copy">&copy; <span id="yr"></span> Cindy Schwall Real Estate at Houlihan Lawrence. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ── Mobile nav ── */
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+
+  /* ── CTA scroll ── */
+  document.getElementById('cta-scroll-btn').addEventListener('click', function () {
+    document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* ── Featured reviews (real testimonials from cindyschwallrealestate.com) ── */
+  const FEATURED = [
+    { name: 'Wei', stars: 5, text: 'We feel very lucky to have worked with Cindy as our realtor. She knows the Scarsdale market very well and helped us better understand different homes, neighborhoods, and tradeoffs. Cindy was patient, knowledgeable, and easy to talk to. She listened carefully to what we were looking for and never tried to push us toward something outside our comfort zone. When we found the right home, she helped us put together a competitive offer and guided us through the entire closing process with clarity and confidence. We couldn\'t recommend her more highly.' },
+    { name: 'Nicola Atherstone', stars: 5, text: 'Thanks to Cindy our home sold IN A DAY for way ABOVE ASKING! From the moment we met her we knew she was the right agent for us. Her pricing strategy, marketing, and negotiating skills are truly exceptional. She kept us informed every step of the way and made what could have been a stressful experience feel completely manageable. If you\'re looking to sell in Scarsdale, look no further.' },
+    { name: 'Eric L.', stars: 5, text: 'We had six offers in less than a week and sold the house for about 25% above asking. Cindy\'s knowledge of the local market and her ability to position our home correctly made all the difference. She was communicative, professional, and always one step ahead. I cannot recommend her highly enough to anyone looking to buy or sell in the area.' },
+    { name: 'June Deng', stars: 5, text: 'Cindy helped us find our dream home in Scarsdale, and the experience could not have been better. She was knowledgeable, honest, and transparent throughout the entire process. She never made us feel rushed and always made time to answer our questions, even late in the evening. She is simply the best in the business.' },
+    { name: 'Adam W.', stars: 5, text: 'Her honest, direct, "get it done" personality and demeanor made her a total pleasure to work with. Cindy never sugarcoated anything — she gave us the real picture of the market and helped us make smart decisions. Her negotiating skills are top-notch and her network of contacts made the closing process go incredibly smoothly.' },
+    { name: 'Tiffany Chen', stars: 5, text: 'Cindy made the process so easy. I cannot thank her enough for all her help in finding me my first home! She was endlessly patient, explained every step clearly, and always had my best interest at heart. I felt completely supported throughout the entire journey. I will absolutely be calling Cindy again for my next move.' },
+    { name: 'Sandra L.', stars: 5, text: 'She gave great advice so that we were the winning bid out of 6 offers. Cindy\'s insight into what sellers are looking for — beyond just price — gave us a real edge. She is strategic, calm under pressure, and an absolute professional. We are so grateful to have had her on our side.' },
+    { name: 'Saurabh R. Gupta', stars: 5, text: 'Cindy has almost become family to us. She brings true personalization to every interaction, is very flexible, and goes that extra mile every single time. She helped us navigate a very competitive market with grace and expertise. We closed on a beautiful home and couldn\'t be happier. Highly recommend without any hesitation.' },
+    { name: 'Debie B.', stars: 5, text: 'Her expertise and keen instincts allowed us to sell the house for well over and above the asking price. From staging advice to marketing to negotiations, Cindy was exceptional at every stage. She has an amazing understanding of buyer psychology and used it to our advantage. An extraordinary agent.' },
+    { name: 'Jonathan H.', stars: 5, text: 'She\'s knowledgeable, personable, and effective as a negotiator — everything you want in a real estate agent. Cindy was always available when we had questions and kept us well-informed throughout the process. She clearly has deep roots in the Scarsdale community and that local expertise showed in every recommendation she made.' },
+    { name: 'Mei G.', stars: 5, text: 'She has a keen eye for details and would point things out to us that we\'d miss. Cindy helped us avoid a home that looked great on the surface but had hidden issues, and ultimately steered us toward a property that was a perfect fit. Cindy is simply the best! We are so happy in our new home.' },
+    { name: 'Victoria A.', stars: 5, text: 'Cindy is an exceptional real estate professional with extensive knowledge of the area. From our very first meeting, she was attentive, organized, and focused on our goals. The entire process went seamlessly from start to finish. She has earned a client for life and we will recommend her to everyone we know.' },
+    { name: 'Ivan M.', stars: 5, text: 'She has an amazing pulse on the Scarsdale real estate market. Working with Cindy was an absolute pleasure from start to finish. She was always one step ahead, anticipating our concerns before we even voiced them. Her professionalism, warmth, and deep knowledge made this one of the best experiences we\'ve had with any service professional.' },
+    { name: 'Maria M.', stars: 5, text: 'She was patient with our various requests, very responsive, and very honest in terms of her advice. Cindy never pushed us toward a decision we weren\'t ready to make, and she always made us feel like we were her top priority. A truly exceptional agent who we will work with again without question.' },
+    { name: 'Wink M.', stars: 5, text: 'We had an accepted offer within 3 days! Cindy\'s pricing strategy and marketing expertise are second to none. She had the right buyers walking through the door from day one, and her negotiating skills sealed the deal quickly and at a great price. Absolutely thrilled with the result and the overall experience.' },
+    { name: 'Peter C.', stars: 5, text: 'Cindy is the best. I could not have asked for a better advisor through this process. She was thorough, responsive, and genuinely invested in finding the right outcome for us. Her relationships with other agents in the area also gave us access to listings before they hit the market. Worth every penny and then some.' },
+  ];
+
+  const THRESHOLD = 140; // chars before "Read More" kicks in
+
+  function starsHTML(n) {
+    return '<span style="color:#c9a84c;letter-spacing:3px">' + '★'.repeat(n) + '</span>' +
+           '<span style="color:#d1d5db;letter-spacing:3px">' + '★'.repeat(5 - n) + '</span>';
+  }
+
+  function escapeHTML(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+            .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
+  function reviewItemHTML(name, stars, text, isNew) {
+    const short  = text.length > THRESHOLD;
+    const id     = 'rv-' + Math.random().toString(36).slice(2, 9);
+    const badge  = isNew ? ' <span style="font-size:.58rem;letter-spacing:2px;color:#888;margin-left:8px;">NEW</span>' : '';
+    return `
+      <div class="review-item">
+        <div class="review-name">${escapeHTML(name)}${badge}</div>
+        <div class="review-stars">${starsHTML(stars)}</div>
+        <div class="review-body-wrap">
+          <div class="review-body ${short ? 'collapsed' : 'expanded'}" id="${id}">${escapeHTML(text)}</div>
+          ${short ? `<div class="review-fade" id="fade-${id}"></div>` : ''}
+        </div>
+        ${short ? `<button class="read-more-btn" data-target="${id}" data-fade="fade-${id}">Read More</button>` : ''}
+      </div>`;
+  }
+
+  function renderFeatured() {
+    document.getElementById('featured-list').innerHTML =
+      FEATURED.map(r => reviewItemHTML(r.name, r.stars, r.text, false)).join('');
+  }
+
+  /* ── Submitted reviews (localStorage) ── */
+  const KEY = 'cindy_schwall_hl_reviews';
+
+  function loadSubmitted() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; }
+  }
+
+  function saveSubmitted(arr) { localStorage.setItem(KEY, JSON.stringify(arr)); }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function renderSubmitted() {
+    const reviews = loadSubmitted();
+    const el = document.getElementById('submitted-list');
+    if (!reviews.length) { el.innerHTML = ''; return; }
+    el.innerHTML = reviews.slice().reverse().map(r => {
+      const label = `${escapeHTML(r.name)} &nbsp;·&nbsp; <span style="font-weight:300;color:#888;">${formatDate(r.date)}</span>`;
+      return reviewItemHTML(r.name, r.rating, r.comment, true).replace(
+        `>${escapeHTML(r.name)}</`,
+        `>${label}</`
+      );
+    }).join('');
+    attachToggleHandlers(el);
+  }
+
+  function attachToggleHandlers(root) {
+    root.querySelectorAll('.read-more-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const body = document.getElementById(this.dataset.target);
+        const fade = document.getElementById(this.dataset.fade);
+        const open = body.classList.toggle('expanded');
+        body.classList.toggle('collapsed', !open);
+        if (fade) fade.classList.toggle('hidden', open);
+        this.classList.toggle('open', open);
+        this.textContent = open ? 'Read Less' : 'Read More';
+        if (open) this.classList.add('open'); else this.classList.remove('open');
+      });
+    });
+  }
+
+  /* ── Form ── */
+  document.getElementById('review-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const nameEl    = document.getElementById('r-name');
+    const commentEl = document.getElementById('r-comment');
+    const ratingEl  = document.querySelector('input[name="rating"]:checked');
+    const picker    = document.getElementById('star-picker');
+    const success   = document.getElementById('form-success');
+
+    // reset errors
+    nameEl.classList.remove('field-error');
+    commentEl.classList.remove('field-error');
+    picker.classList.remove('star-error');
+
+    const name    = nameEl.value.trim();
+    const comment = commentEl.value.trim();
+    const rating  = ratingEl ? parseInt(ratingEl.value, 10) : 0;
+
+    let valid = true;
+    if (!name)    { nameEl.classList.add('field-error');    nameEl.focus();    valid = false; }
+    if (!rating)  { picker.classList.add('star-error');                        valid = false; }
+    if (!comment) { commentEl.classList.add('field-error'); commentEl.focus(); valid = false; }
+    if (!valid) return;
+
+    const reviews = loadSubmitted();
+    reviews.push({ name, rating, comment, date: new Date().toISOString() });
+    saveSubmitted(reviews);
+
+    this.reset();
+    success.style.display = 'block';
+    setTimeout(() => { success.style.display = 'none'; }, 5000);
+
+    renderSubmitted();
+    document.getElementById('submitted-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  ['r-name', 'r-comment'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function () {
+      this.classList.remove('field-error');
+    });
+  });
+  document.querySelectorAll('input[name="rating"]').forEach(el => {
+    el.addEventListener('change', () => document.getElementById('star-picker').classList.remove('star-error'));
+  });
+
+  /* ── Init ── */
+  renderFeatured();
+  renderSubmitted();
+  attachToggleHandlers(document.getElementById('featured-list'));
+</script>
+</body>
+</html>
